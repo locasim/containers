@@ -1,236 +1,130 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>LOCASIM SERVIÇOS - Venda e Locação de Contêineres</title>
+<link rel="icon" href="assets/favicon.ico" type="image/x-icon"/>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0; padding: 0;
-    background: #f5f5f5;
-    color: #333;
-  }
-  header {
-    background-color: #004a99;
-    color: white;
-    padding: 20px 10px;
-    text-align: center;
-  }
-  header img {
-    max-height: 70px;
-  }
-  nav {
-    background-color: #003366;
-    display: flex;
-    justify-content: center;
-  }
-  nav a {
-    color: white;
-    padding: 14px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-  }
-  nav a:hover {
-    background-color: #0055cc;
-  }
-  .banner {
-    background: url('07.jpg') center/cover no-repeat;
-    color: white;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-shadow: 1px 1px 4px #000;
-    padding: 0 20px;
-    text-align: center;
-  }
-  .banner h1 {
-    font-size: 2.8em;
-    margin-bottom: 10px;
-  }
-  .banner p {
-    font-size: 1.4em;
-    margin-bottom: 20px;
-  }
-  .btn-primary {
-    background-color: #007bff;
-    padding: 12px 25px;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-  }
-  section {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 15px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
-  }
-  section h2 {
-    border-bottom: 3px solid #004a99;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    color: #004a99;
-  }
-  ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  ul li {
-    margin-bottom: 10px;
-    font-size: 1.1em;
-  }
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  form label {
-    margin: 10px 0 5px;
-    font-weight: bold;
-  }
-  form input, form select, form textarea {
-    padding: 10px;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: vertical;
-  }
-  form textarea {
-    min-height: 80px;
-  }
-  form button {
-    margin-top: 20px;
-    padding: 12px;
-    background-color: #004a99;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  form button:hover {
-    background-color: #002f5e;
-  }
-  footer {
-    background-color: #003366;
-    color: white;
-    text-align: center;
-    padding: 15px 10px;
-    margin-top: 40px;
-  }
-  footer a {
-    color: #a9d1ff;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  @media (max-width: 600px) {
-    nav {
-      flex-direction: column;
-    }
-    .banner h1 {
-      font-size: 2em;
-    }
-  }
+body{font-family:Arial,sans-serif;margin:0;padding:0;background:#f5f5f5;color:#333}
+header{background:#004a99;color:#fff;padding:20px;text-align:center;font-size:1.8em;font-weight:bold}
+nav{background:#003366;display:flex;justify-content:center;flex-wrap:wrap}
+nav a{color:#fff;padding:12px 18px;text-decoration:none;font-weight:bold;font-size:15px}
+nav a:hover{background:#0055cc}
+.banner{background:url('assets/banner.jpg') center/cover no-repeat;color:#fff;height:320px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-shadow:1px 1px 4px #000;text-align:center;padding:0 20px}
+.banner h1{font-size:2.5em;margin-bottom:10px}
+.banner p{font-size:1.2em;margin-bottom:20px}
+.btn-primary{background:#007bff;padding:12px 25px;color:#fff;text-decoration:none;border-radius:6px;font-weight:bold}
+section{max-width:1000px;margin:40px auto;padding:20px;background:#fff;border-radius:10px;box-shadow:0 3px 10px rgba(0,0,0,0.1)}
+section h2{border-bottom:3px solid #004a99;padding-bottom:8px;margin-bottom:20px;color:#004a99}
+.produtos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.produto-card{background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);text-align:center;padding:15px;transition:transform 0.2s ease}
+.produto-card:hover{transform:translateY(-5px)}
+.produto-card img{width:100%;height:160px;object-fit:cover;border-radius:6px;margin-bottom:10px}
+.botoes-acao{margin:20px 0;display:flex;flex-wrap:wrap;gap:10px}
+.btn-acao{flex:1;text-align:center;color:white;padding:12px;border-radius:6px;text-decoration:none;font-weight:bold}
+@media(max-width:600px){nav{flex-direction:column}.banner h1{font-size:2em}.btn-acao{flex:100%}}
+footer{background:#003366;color:white;text-align:center;padding:15px;margin-top:40px}
+footer a{color:#a9d1ff;text-decoration:none;font-weight:bold}
 </style>
 </head>
 <body>
 
-<header>
-  <img src="07.jpg" alt="Logo LOCASIM SERVIÇOS" />
-</header>
+<header>LOCASIM SERVIÇOS</header>
 
 <nav>
-  <a href="#home">Início</a>
-  <a href="#sobre">Sobre Nós</a>
-  <a href="#produtos">Produtos</a>
-  <a href="#orcamento">Orçamento</a>
-  <a href="#contato">Contato</a>
+<a href="#home">Início</a>
+<a href="#sobre">Sobre Nós</a>
+<a href="#produtos">Produtos</a>
+<a href="#orcamento">Orçamento</a>
+<a href="#contato">Contato</a>
 </nav>
 
 <section class="banner" id="home">
-  <h1>Venda, Locação e Transporte de Contêineres em Palmas - TO</h1>
-  <p>Soluções práticas, rápidas e com excelente custo-benefício.</p>
-  <a href="#orcamento" class="btn-primary">Solicite um Orçamento</a>
+<h1>Venda, Locação e Transporte de Contêineres em Palmas - TO</h1>
+<p>Soluções práticas, rápidas e com excelente custo-benefício.</p>
+<a href="#orcamento" class="btn-primary">Solicite um Orçamento</a>
 </section>
 
 <section id="sobre">
-  <h2>Sobre Nós</h2>
-  <p>A <strong>LOCASIM SERVIÇOS</strong> atua com excelência na <strong>venda, locação e transporte de contêineres</strong> em Palmas - TO e região.</p>
-  <p>Oferecemos soluções sob medida para obras, empresas, eventos e necessidades habitacionais temporárias.</p>
-  <p>Trabalhamos com seriedade, agilidade na entrega e compromisso com o cliente.</p>
-  <h3>Nossos diferenciais:</h3>
-  <ul>
-    <li>Contêineres de alta qualidade</li>
-    <li>Atendimento rápido e personalizado</li>
-    <li>Transporte próprio (mobilização e desmobilização)</li>
-    <li>Preços justos</li>
-  </ul>
+<h2>Sobre Nós</h2>
+<p>A <strong>LOCASIM SERVIÇOS</strong> atua com excelência na <strong>venda, locação e transporte de contêineres</strong> em Palmas - TO e região.</p>
+<ul>
+<li>✔️ Contêineres de alta qualidade</li>
+<li>✔️ Atendimento rápido e personalizado</li>
+<li>✔️ Transporte próprio (mobilização e desmobilização)</li>
+<li>✔️ Preços justos</li>
+</ul>
 </section>
 
 <section id="produtos">
-  <h2>Nossos Contêineres</h2>
-  <ul>
-    <li>🏢 Contêiner Escritório</li>
-    <li>🛠️ Contêiner Almoxarifado</li>
-    <li>🚽 Contêiner Banheiro</li>
-    <li>🌊 Contêiner Marítimo (Padrão 20/40 pés)</li>
-  </ul>
-  <p>Todos os modelos prontos para uso imediato, com entrega em todo o Tocantins.</p>
+<h2>Nossos Contêineres</h2>
+<div class="produtos-grid">
+<div class="produto-card">
+<img src="assets/escritorio.jpg" alt="Contêiner Escritório">
+<h3>🏢 Contêiner Escritório</h3>
+<p>Pronto para uso imediato, ideal para obras e empresas.</p>
+</div>
+<div class="produto-card">
+<img src="assets/almoxarifado.jpg" alt="Contêiner Almoxarifado">
+<h3>🛠️ Contêiner Almoxarifado</h3>
+<p>Perfeito para armazenar materiais com segurança.</p>
+</div>
+<div class="produto-card">
+<img src="assets/banheiro.jpg" alt="Contêiner Banheiro">
+<h3>🚽 Contêiner Banheiro</h3>
+<p>Conforto e praticidade em eventos e obras.</p>
+</div>
+<div class="produto-card">
+<img src="assets/maritimo.jpg" alt="Contêiner Marítimo">
+<h3>🌊 Contêiner Marítimo</h3>
+<p>Modelos de 20 e 40 pés, robustos e resistentes.</p>
+</div>
+</div>
 </section>
 
 <section id="orcamento">
-  <h2>Orçamento Rápido</h2>
-  <form action="mailto:locasimesservicos@gmail.com" method="post" enctype="text/plain">
-    <label for="nome">Nome:</label>
-    <input type="text" id="nome" name="nome" required />
-
-    <label for="telefone">Telefone / WhatsApp:</label>
-    <input type="tel" id="telefone" name="telefone" required />
-
-    <label for="email">E-mail:</label>
-    <input type="email" id="email" name="email" required />
-
-    <label for="tipo">Tipo de Contêiner:</label>
-    <select id="tipo" name="tipo" required>
-      <option value="" disabled selected>Selecione</option>
-      <option value="Escritório">Escritório</option>
-      <option value="Almoxarifado">Almoxarifado</option>
-      <option value="Banheiro">Banheiro</option>
-      <option value="Marítimo">Contêiner Marítimo</option>
-    </select>
-
-    <label for="compra_aluguel">Compra ou Aluguel?</label>
-    <select id="compra_aluguel" name="compra_aluguel" required>
-      <option value="" disabled selected>Selecione</option>
-      <option value="Compra">Compra</option>
-      <option value="Aluguel">Aluguel</option>
-    </select>
-
-    <label for="cidade">Cidade / Estado:</label>
-    <input type="text" id="cidade" name="cidade" value="Palmas - TO" required />
-
-    <label for="mensagem">Mensagem Adicional:</label>
-    <textarea id="mensagem" name="mensagem" placeholder="Digite aqui sua mensagem..."></textarea>
-
-    <button type="submit">Enviar</button>
-  </form>
+<h2>Orçamento Rápido</h2>
+<form action="mailto:locasimesservicos@gmail.com" method="post" enctype="text/plain">
+<label for="nome">Nome:</label><input type="text" id="nome" name="nome" required/>
+<label for="telefone">Telefone / WhatsApp:</label><input type="tel" id="telefone" name="telefone" required/>
+<label for="email">E-mail:</label><input type="email" id="email" name="email" required/>
+<label for="tipo">Tipo de Contêiner:</label>
+<select id="tipo" name="tipo" required>
+<option value="" disabled selected>Selecione</option>
+<option value="Escritório">Escritório</option>
+<option value="Almoxarifado">Almoxarifado</option>
+<option value="Banheiro">Banheiro</option>
+<option value="Marítimo">Contêiner Marítimo</option>
+</select>
+<label for="compra_aluguel">Compra ou Aluguel?</label>
+<select id="compra_aluguel" name="compra_aluguel" required>
+<option value="" disabled selected>Selecione</option>
+<option value="Compra">Compra</option>
+<option value="Aluguel">Aluguel</option>
+</select>
+<label for="cidade">Cidade / Estado:</label>
+<input type="text" id="cidade" name="cidade" value="Palmas - TO" required/>
+<label for="mensagem">Mensagem Adicional:</label><textarea id="mensagem" name="mensagem" placeholder="Digite aqui sua mensagem..."></textarea>
+<button type="submit" class="btn-primary">Enviar</button>
+</form>
 </section>
 
 <section id="contato">
-  <h2>Contato</h2>
-  <p>📍 Atendemos Palmas - TO e região</p>
-  <p>📱 WhatsApp: <a href="https://wa.me/5563992342531" target="_blank">(63) 9 9234-2531</a></p>
-  <p>📧 E-mail: <a href="mailto:locasimesservicos@gmail.com">locasimesservicos@gmail.com</a></p>
-  <p>📸 Instagram: <a href="https://www.instagram.com/locasimesservicos" target="_blank">@locasimesservicos</a></p>
+<h2>Contato</h2>
+<p>📍 Endereço: ASR SE 55 (512 Sul) Alameda 05, Qi 05, Lote 24, Plano Diretor Sul, Palmas-TO, 77021-764</p>
+<p>📱 WhatsApp: <a href="https://wa.me/5563992342531" target="_blank">(63) 9 9234-2531</a></p>
+<p>📧 E-mail: <a href="mailto:locasimesservicos@gmail.com">locasimesservicos@gmail.com</a></p>
+<p>📸 Instagram: <a href="https://www.instagram.com/locasimeservicos" target="_blank">@locasimeservicos</a></p>
+<div class="botoes-acao">
+<a href="tel:+5563992342531" class="btn-acao" style="background:#28a745;">📞 Ligar Agora</a>
+<a href="https://www.google.com/maps?q=ASR+SE+55+(512+Sul)+Alameda+05,+Qi+05,+Lote+24,+Plano+Diretor+Sul,+Palmas-TO,+77021-764" target="_blank" class="btn-acao" style="background:#ff6600;">🗺️ Abrir no Maps</a>
+<a href="https://wa.me/5563992342531" target="_blank" class="btn-acao" style="background:#25d366;">💬 WhatsApp</a>
+</div>
 </section>
 
 <footer>
-  <p>©️ 2025 LOCASIM SERVIÇOS - Todos os direitos reservados.</p>
+<p>© 2025 LOCASIM SERVIÇOS - Todos os direitos reservados.</p>
 </footer>
 
 </body>
